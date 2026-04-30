@@ -6,7 +6,7 @@ import { skillProofInputSchema } from "@/lib/schemas/skillproof";
 import {
   analyzeSkillProofExperience,
   SkillProofServiceError,
-} from "@/services/skillproof/skillproof.service";
+} from "@/services/skillproof.service";
 
 const jsonError = (error: string, status: number) =>
   NextResponse.json({ error }, { status });

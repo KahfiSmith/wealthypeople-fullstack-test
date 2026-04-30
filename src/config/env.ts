@@ -33,7 +33,7 @@ export const env = {
   }),
   openaiMaxOutputTokens: readOptionalNumberEnv(
     "OPENAI_MAX_OUTPUT_TOKENS",
-    1200,
+    2000,
     { min: 1 }
   ),
   openaiTimeoutMs: readOptionalNumberEnv("OPENAI_TIMEOUT_MS", 20000, {

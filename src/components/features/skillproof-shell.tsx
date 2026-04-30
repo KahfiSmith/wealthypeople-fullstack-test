@@ -16,7 +16,7 @@ const outputLanguageOptions: Array<{
   label: string;
   value: SkillProofOutputLanguage;
 }> = [
-  { label: "Indonesia", value: "id" },
+  { label: "Indonesian", value: "id" },
   { label: "English", value: "en" },
 ];
 
@@ -24,14 +24,14 @@ const experienceTypeOptions: Array<{
   label: string;
   value: SkillProofExperienceType;
 }> = [
-  { label: "Organisasi", value: "organization" },
-  { label: "Project kuliah", value: "course_project" },
+  { label: "Organization", value: "organization" },
+  { label: "Course project", value: "course_project" },
   { label: "Freelance", value: "freelance" },
   { label: "Volunteer", value: "volunteer" },
-  { label: "Bisnis keluarga", value: "family_business" },
-  { label: "Kompetisi", value: "competition" },
+  { label: "Family business", value: "family_business" },
+  { label: "Competition", value: "competition" },
   { label: "Internship", value: "internship" },
-  { label: "Lainnya", value: "other" },
+  { label: "Other", value: "other" },
 ];
 
 const outputFormatOptions: Array<{
@@ -101,7 +101,7 @@ export function SkillProofShell() {
 
       if (!response.ok || !("data" in payload)) {
         const message = "error" in payload ? payload.error : undefined;
-        throw new Error(message || "Gagal membuat analisis.");
+        throw new Error(message || "Failed to generate analysis.");
       }
 
       setAnalysis(payload.data);
@@ -109,7 +109,7 @@ export function SkillProofShell() {
       setError(
         caughtError instanceof Error
           ? caughtError.message
-          : "Gagal membuat analisis."
+          : "Failed to generate analysis."
       );
     } finally {
       setIsPending(false);
@@ -154,11 +154,11 @@ export function SkillProofShell() {
             {siteConfig.name}
           </p>
           <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-brand-blue sm:text-5xl">
-            Ubah pengalaman sehari-hari menjadi bukti skill profesional.
+            Turn everyday experience into professional skill proof.
           </h1>
           <p className="max-w-2xl text-base leading-7 text-brand-blue/75">
-            Struktur awal sudah siap. Step berikutnya adalah membuat form input,
-            lalu menghubungkannya ke endpoint AI.
+            Describe what you have done, choose the output you need, and let AI
+            turn it into career-ready material.
           </p>
 
           <form
@@ -167,12 +167,12 @@ export function SkillProofShell() {
           >
             <label className="flex flex-col gap-2">
               <span className="text-sm font-medium text-brand-blue">
-                Ceritakan pengalaman kamu
+                Tell us about your experience
               </span>
               <textarea
                 className="min-h-40 resize-y rounded-none border-2 border-brand-blue bg-white px-4 py-3 text-sm leading-6 text-brand-blue outline-none transition placeholder:text-brand-blue/40 focus:border-brand-coral focus:ring-2 focus:ring-brand-coral/30"
                 onChange={(event) => setExperience(event.target.value)}
-                placeholder="Contoh: Saya membantu bisnis keluarga mencatat stok, melayani pelanggan, dan membuat laporan penjualan sederhana..."
+                placeholder="Example: I helped my family business track inventory, serve customers, and summarize daily sales in a simple spreadsheet..."
                 value={experience}
               />
             </label>
@@ -184,14 +184,14 @@ export function SkillProofShell() {
               <input
                 className="h-11 rounded-none border-2 border-brand-blue bg-white px-4 text-sm text-brand-blue outline-none transition placeholder:text-brand-blue/40 focus:border-brand-coral focus:ring-2 focus:ring-brand-coral/30"
                 onChange={(event) => setTargetRole(event.target.value)}
-                placeholder="Contoh: Product Manager Intern, Data Analyst, HR Staff"
+                placeholder="Example: Product Manager Intern, Data Analyst, HR Staff"
                 value={targetRole}
               />
             </label>
 
             <fieldset className="flex flex-col gap-2">
               <legend className="text-sm font-medium text-brand-blue">
-                Tipe pengalaman
+                Experience type
               </legend>
               <div className="grid gap-2 sm:grid-cols-2">
                 {experienceTypeOptions.map((option) => (
@@ -209,14 +209,14 @@ export function SkillProofShell() {
               {experienceType === "other" ? (
                 <label className="mt-2 flex flex-col gap-2">
                   <span className="text-sm font-medium text-brand-blue">
-                    Tulis tipe pengalaman lainnya
+                    Describe the other experience type
                   </span>
                   <input
                     className="h-11 rounded-none border-2 border-brand-blue bg-white px-4 text-sm text-brand-blue outline-none transition placeholder:text-brand-blue/40 focus:border-brand-coral focus:ring-2 focus:ring-brand-coral/30"
                     onChange={(event) =>
                       setCustomExperienceType(event.target.value)
                     }
-                    placeholder="Contoh: komunitas online, side project, content creator..."
+                    placeholder="Example: online community, side project, content creator..."
                     value={customExperienceType}
                   />
                 </label>
@@ -225,7 +225,7 @@ export function SkillProofShell() {
 
             <fieldset className="flex flex-col gap-2">
               <legend className="text-sm font-medium text-brand-blue">
-                Bahasa output
+                Output language
               </legend>
               <div className="grid grid-cols-2 rounded-none border-2 border-brand-blue bg-white p-1">
                 {outputLanguageOptions.map((option) => (
@@ -244,7 +244,7 @@ export function SkillProofShell() {
 
             <fieldset className="flex flex-col gap-2">
               <legend className="text-sm font-medium text-brand-blue">
-                Output yang dibuat
+                Outputs to generate
               </legend>
               <div className="grid gap-2 sm:grid-cols-2">
                 {outputFormatOptions.map((option) => (
@@ -275,7 +275,7 @@ export function SkillProofShell() {
               disabled={isPending}
               type="submit"
             >
-              {isPending ? "Menganalisis..." : "Generate SkillProof"}
+              {isPending ? "Analyzing..." : "Generate SkillProof"}
             </Button>
           </form>
 
@@ -292,7 +292,7 @@ function SkillProofResult({
 }: Readonly<{ analysis: SkillProofAnalysis }>) {
   return (
     <section className="mt-6 grid gap-4 rounded-none border-2 border-brand-blue bg-white p-5 shadow-[8px_8px_0_var(--brand-blue)]">
-      <h2 className="text-xl font-semibold text-brand-blue">Hasil analisis</h2>
+      <h2 className="text-xl font-semibold text-brand-blue">Analysis result</h2>
 
       <ResultBlock title="Hidden skills">
         <div className="flex flex-wrap gap-2">
