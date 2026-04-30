@@ -151,12 +151,12 @@ export function SkillProofShell() {
       />
 
       <header className="border-b-2 border-brand-blue bg-white">
-        <div className="mx-auto flex h-20 w-full max-w-4xl items-center justify-between px-6">
+        <div className="mx-auto flex h-18 w-full max-w-4xl items-center justify-between px-4 sm:h-20 sm:px-6">
           <div className="flex items-center gap-3">
             <div className="flex h-12 items-center">
               <Image
                 alt={siteConfig.name}
-                className="h-8 w-auto object-contain"
+                className="h-7 w-auto object-contain sm:h-8"
                 height={938}
                 priority
                 src={siteConfig.logoPath}
@@ -171,12 +171,12 @@ export function SkillProofShell() {
         </div>
       </header>
 
-      <main className="relative z-10 py-16">
-        <section className="mx-auto flex w-full max-w-4xl flex-col gap-5 px-6">
-          <p className="w-fit rounded-none border-2 border-brand-blue bg-brand-peach px-3 py-2 text-sm font-black uppercase text-brand-blue shadow-[4px_4px_0_var(--brand-blue)]">
+      <main className="relative z-10 py-10 sm:py-16">
+        <section className="mx-auto flex w-full max-w-4xl flex-col gap-5 px-4 sm:px-6">
+          <p className="w-fit rounded-none border-2 border-brand-blue bg-brand-peach px-3 py-2 text-xs font-black uppercase text-brand-blue shadow-[3px_3px_0_var(--brand-blue)] sm:text-sm sm:shadow-[4px_4px_0_var(--brand-blue)]">
             {siteConfig.name}
           </p>
-          <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-brand-blue sm:text-5xl">
+          <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-brand-blue sm:text-5xl">
             Turn everyday experience into professional skill proof.
           </h1>
           <p className="max-w-2xl text-base leading-7 text-brand-blue">
@@ -185,7 +185,7 @@ export function SkillProofShell() {
           </p>
 
           <form
-            className="mt-8 grid gap-5 rounded-none border-2 border-brand-blue bg-white p-5 shadow-[8px_8px_0_var(--brand-blue)]"
+            className="mt-5 grid gap-5 rounded-none border-2 border-brand-blue bg-white p-4 shadow-[5px_5px_0_var(--brand-blue)] sm:mt-8 sm:p-5 sm:shadow-[8px_8px_0_var(--brand-blue)]"
             onSubmit={handleSubmit}
           >
             <label className="flex flex-col gap-2">
@@ -294,7 +294,7 @@ export function SkillProofShell() {
             ) : null}
 
             <Button
-              className="h-11 w-full rounded-none border-2 border-brand-blue bg-brand-coral font-black uppercase text-white shadow-[5px_5px_0_var(--brand-blue)] hover:bg-brand-red"
+              className="h-auto min-h-11 w-full rounded-none border-2 border-brand-blue bg-brand-coral px-4 py-3 text-sm font-black uppercase text-white shadow-[4px_4px_0_var(--brand-blue)] hover:bg-brand-red sm:shadow-[5px_5px_0_var(--brand-blue)]"
               disabled={isPending}
               type="submit"
             >
@@ -334,7 +334,7 @@ function SkillProofResult({
   analysis,
 }: Readonly<{ analysis: SkillProofAnalysis }>) {
   return (
-    <section className="mt-6 grid gap-4 rounded-none border-2 border-brand-blue bg-white p-5 shadow-[8px_8px_0_var(--brand-blue)]">
+    <section className="mt-6 grid gap-4 rounded-none border-2 border-brand-blue bg-white p-4 shadow-[5px_5px_0_var(--brand-blue)] sm:p-5 sm:shadow-[8px_8px_0_var(--brand-blue)]">
       <h2 className="text-xl font-semibold text-brand-blue">Analysis result</h2>
 
       <ResultBlock title="Hidden skills">
@@ -394,9 +394,9 @@ function ResultBlock({
   title,
 }: Readonly<{ children: React.ReactNode; title: string }>) {
   return (
-    <div className="rounded-none border-2 border-brand-blue bg-white p-4">
+    <div className="min-w-0 rounded-none border-2 border-brand-blue bg-white p-4">
       <h3 className="mb-3 text-sm font-semibold text-brand-blue">{title}</h3>
-      {children}
+      <div className="min-w-0 break-words">{children}</div>
     </div>
   );
 }
