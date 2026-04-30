@@ -1,3 +1,8 @@
+export const SKILL_PROOF_EXPERIENCE_MIN_LENGTH = 40;
+export const SKILL_PROOF_EXPERIENCE_MAX_LENGTH = 4000;
+export const SKILL_PROOF_CUSTOM_EXPERIENCE_TYPE_MAX_LENGTH = 80;
+export const SKILL_PROOF_TARGET_ROLE_MAX_LENGTH = 120;
+
 export type SkillProofExperienceType =
   | "organization"
   | "course_project"

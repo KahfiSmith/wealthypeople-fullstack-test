@@ -1,8 +1,32 @@
 import { z } from "zod";
 
+import {
+  SKILL_PROOF_CUSTOM_EXPERIENCE_TYPE_MAX_LENGTH,
+  SKILL_PROOF_EXPERIENCE_MAX_LENGTH,
+  SKILL_PROOF_EXPERIENCE_MIN_LENGTH,
+  SKILL_PROOF_TARGET_ROLE_MAX_LENGTH,
+} from "@/types";
+
 export const skillProofInputSchema = z.object({
-  customExperienceType: z.string().trim().max(80).optional(),
-  experience: z.string().trim().min(40).max(4000),
+  customExperienceType: z
+    .string()
+    .trim()
+    .max(
+      SKILL_PROOF_CUSTOM_EXPERIENCE_TYPE_MAX_LENGTH,
+      "Keep the custom experience type short and clear."
+    )
+    .optional(),
+  experience: z
+    .string()
+    .trim()
+    .min(
+      SKILL_PROOF_EXPERIENCE_MIN_LENGTH,
+      "Please describe your experience in at least 40 characters. Add what you did, the context, and the result."
+    )
+    .max(
+      SKILL_PROOF_EXPERIENCE_MAX_LENGTH,
+      "Your experience is too long. Please keep it under 4,000 characters."
+    ),
   experienceType: z.enum([
     "organization",
     "course_project",
@@ -13,7 +37,14 @@ export const skillProofInputSchema = z.object({
     "internship",
     "other",
   ]),
-  targetRole: z.string().trim().max(120).optional(),
+  targetRole: z
+    .string()
+    .trim()
+    .max(
+      SKILL_PROOF_TARGET_ROLE_MAX_LENGTH,
+      "Keep the target role under 120 characters."
+    )
+    .optional(),
   outputLanguage: z.enum(["id", "en"]),
   outputFormats: z
     .array(
@@ -24,7 +55,7 @@ export const skillProofInputSchema = z.object({
         "role_recommendations",
       ])
     )
-    .min(1),
+    .min(1, "Choose at least one output to generate."),
 });
 
 export const skillProofAnalysisSchema = z.object({
