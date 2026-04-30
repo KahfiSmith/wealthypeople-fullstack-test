@@ -5,6 +5,10 @@ import { FormEvent, useState } from "react";
 
 import { siteConfig } from "@/config";
 import { Button } from "@/components/ui";
+import {
+  SKILL_PROOF_EXPERIENCE_MIN_LENGTH,
+  SKILL_PROOF_TARGET_ROLE_MAX_LENGTH,
+} from "@/types";
 import type {
   SkillProofAnalysis,
   SkillProofExperienceType,
@@ -87,6 +91,17 @@ export function SkillProofShell() {
     event.preventDefault();
     setAnalysis(null);
     setError("");
+
+    const validationError = getFormValidationError({
+      experience,
+      targetRole,
+    });
+
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
+
     setIsPending(true);
 
     try {
@@ -293,6 +308,26 @@ export function SkillProofShell() {
       </main>
     </div>
   );
+}
+
+function getFormValidationError({
+  experience,
+  targetRole,
+}: {
+  experience: string;
+  targetRole: string;
+}) {
+  const experienceLength = experience.trim().length;
+
+  if (experienceLength < SKILL_PROOF_EXPERIENCE_MIN_LENGTH) {
+    return `Please write at least ${SKILL_PROOF_EXPERIENCE_MIN_LENGTH} characters about your experience. You currently have ${experienceLength}. Add what you did, who it helped, and the result.`;
+  }
+
+  if (targetRole.trim().length > SKILL_PROOF_TARGET_ROLE_MAX_LENGTH) {
+    return `Please keep the target role under ${SKILL_PROOF_TARGET_ROLE_MAX_LENGTH} characters.`;
+  }
+
+  return "";
 }
 
 function SkillProofResult({
