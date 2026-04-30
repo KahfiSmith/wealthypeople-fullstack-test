@@ -126,6 +126,14 @@ export function SkillProofShell() {
         className="pointer-events-none absolute -left-28 top-72 h-80 w-80 rounded-full bg-brand-cream blur-3xl"
         aria-hidden="true"
       />
+      <div
+        className="pointer-events-none absolute -right-32 bottom-56 h-96 w-96 rounded-full bg-brand-cream blur-3xl"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute -left-36 bottom-8 h-72 w-72 rounded-full bg-brand-cream blur-3xl"
+        aria-hidden="true"
+      />
 
       <header className="border-b-2 border-brand-blue bg-white">
         <div className="mx-auto flex h-20 w-full max-w-4xl items-center justify-between px-6">
@@ -156,7 +164,7 @@ export function SkillProofShell() {
           <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-brand-blue sm:text-5xl">
             Turn everyday experience into professional skill proof.
           </h1>
-          <p className="max-w-2xl text-base leading-7 text-brand-blue/75">
+          <p className="max-w-2xl text-base leading-7 text-brand-blue">
             Describe what you have done, choose the output you need, and let AI
             turn it into career-ready material.
           </p>
@@ -170,7 +178,7 @@ export function SkillProofShell() {
                 Tell us about your experience
               </span>
               <textarea
-                className="min-h-40 resize-y rounded-none border-2 border-brand-blue bg-white px-4 py-3 text-sm leading-6 text-brand-blue outline-none transition placeholder:text-brand-blue/40 focus:border-brand-coral focus:ring-2 focus:ring-brand-coral/30"
+                className="min-h-40 resize-y rounded-none border-2 border-brand-blue bg-white px-4 py-3 text-sm leading-6 text-brand-blue outline-none transition placeholder:text-brand-blue/55 focus:border-brand-coral focus:ring-2 focus:ring-brand-coral/30"
                 onChange={(event) => setExperience(event.target.value)}
                 placeholder="Example: I helped my family business track inventory, serve customers, and summarize daily sales in a simple spreadsheet..."
                 value={experience}
@@ -182,7 +190,7 @@ export function SkillProofShell() {
                 Target role
               </span>
               <input
-                className="h-11 rounded-none border-2 border-brand-blue bg-white px-4 text-sm text-brand-blue outline-none transition placeholder:text-brand-blue/40 focus:border-brand-coral focus:ring-2 focus:ring-brand-coral/30"
+                className="h-11 rounded-none border-2 border-brand-blue bg-white px-4 text-sm text-brand-blue outline-none transition placeholder:text-brand-blue/55 focus:border-brand-coral focus:ring-2 focus:ring-brand-coral/30"
                 onChange={(event) => setTargetRole(event.target.value)}
                 placeholder="Example: Product Manager Intern, Data Analyst, HR Staff"
                 value={targetRole}
@@ -196,7 +204,7 @@ export function SkillProofShell() {
               <div className="grid gap-2 sm:grid-cols-2">
                 {experienceTypeOptions.map((option) => (
                   <button
-                    className="rounded-none border-2 border-brand-blue bg-white px-3 py-2 text-left text-sm font-bold text-brand-blue/70 transition hover:bg-brand-cream data-[active=true]:border-brand-blue data-[active=true]:bg-brand-sage data-[active=true]:text-brand-blue data-[active=true]:shadow-[4px_4px_0_var(--brand-blue)]"
+                    className="rounded-none border-2 border-brand-blue bg-white px-3 py-2 text-left text-sm font-bold text-brand-blue transition hover:bg-brand-cream data-[active=true]:border-brand-blue data-[active=true]:bg-brand-sage data-[active=true]:text-brand-blue data-[active=true]:shadow-[4px_4px_0_var(--brand-blue)]"
                     data-active={experienceType === option.value}
                     key={option.value}
                     onClick={() => setExperienceType(option.value)}
@@ -212,7 +220,7 @@ export function SkillProofShell() {
                     Describe the other experience type
                   </span>
                   <input
-                    className="h-11 rounded-none border-2 border-brand-blue bg-white px-4 text-sm text-brand-blue outline-none transition placeholder:text-brand-blue/40 focus:border-brand-coral focus:ring-2 focus:ring-brand-coral/30"
+                    className="h-11 rounded-none border-2 border-brand-blue bg-white px-4 text-sm text-brand-blue outline-none transition placeholder:text-brand-blue/55 focus:border-brand-coral focus:ring-2 focus:ring-brand-coral/30"
                     onChange={(event) =>
                       setCustomExperienceType(event.target.value)
                     }
@@ -230,7 +238,7 @@ export function SkillProofShell() {
               <div className="grid grid-cols-2 rounded-none border-2 border-brand-blue bg-white p-1">
                 {outputLanguageOptions.map((option) => (
                   <button
-                    className="rounded-none px-3 py-2 text-sm font-bold text-brand-blue/70 transition data-[active=true]:bg-brand-blue data-[active=true]:text-white"
+                    className="rounded-none px-3 py-2 text-sm font-bold text-brand-blue transition data-[active=true]:bg-brand-blue data-[active=true]:text-white"
                     data-active={outputLanguage === option.value}
                     key={option.value}
                     onClick={() => setOutputLanguage(option.value)}
@@ -249,7 +257,7 @@ export function SkillProofShell() {
               <div className="grid gap-2 sm:grid-cols-2">
                 {outputFormatOptions.map((option) => (
                   <label
-                    className="flex cursor-pointer items-center gap-3 rounded-none border-2 border-brand-blue bg-white px-3 py-2 text-sm font-bold text-brand-blue/75 transition has-checked:bg-brand-sage has-checked:shadow-[4px_4px_0_var(--brand-blue)]"
+                    className="flex cursor-pointer items-center gap-3 rounded-none border-2 border-brand-blue bg-white px-3 py-2 text-sm font-bold text-brand-blue transition has-checked:bg-brand-sage has-checked:shadow-[4px_4px_0_var(--brand-blue)]"
                     key={option.value}
                   >
                     <input
@@ -308,7 +316,7 @@ function SkillProofResult({
       </ResultBlock>
 
       <ResultBlock title="CV bullets">
-        <ul className="list-disc space-y-2 pl-5 text-sm leading-6 text-brand-blue/80">
+        <ul className="list-disc space-y-2 pl-5 text-sm leading-6 text-brand-blue">
           {analysis.cvBullets.map((bullet) => (
             <li key={bullet}>{bullet}</li>
           ))}
@@ -316,13 +324,13 @@ function SkillProofResult({
       </ResultBlock>
 
       <ResultBlock title="Portfolio story">
-        <p className="text-sm leading-6 text-brand-blue/80">
+        <p className="text-sm leading-6 text-brand-blue">
           {analysis.portfolioStory}
         </p>
       </ResultBlock>
 
       <ResultBlock title="Interview answer">
-        <p className="text-sm leading-6 text-brand-blue/80">
+        <p className="text-sm leading-6 text-brand-blue">
           {analysis.interviewAnswer}
         </p>
       </ResultBlock>
@@ -335,7 +343,7 @@ function SkillProofResult({
               key={`${role.title}-${role.reason}`}
             >
               <h3 className="font-medium text-brand-blue">{role.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-brand-blue/75">
+              <p className="mt-2 text-sm leading-6 text-brand-blue">
                 {role.reason}
               </p>
             </article>

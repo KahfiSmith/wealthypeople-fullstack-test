@@ -15,7 +15,6 @@
   --color-brand-peach: var(--brand-peach);
   --color-brand-sage: var(--brand-sage);
   --color-brand-blue: var(--brand-blue);
-  --color-brand-brown: var(--brand-brown);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-accent: var(--sidebar-accent);
@@ -58,17 +57,16 @@
   --brand-peach: #ecae7d;
   --brand-sage: #8db5ad;
   --brand-blue: #064b72;
-  --brand-brown: #472a0e;
   --background: #ffffff;
-  --foreground: var(--brand-brown);
+  --foreground: var(--brand-blue);
   --card: #fffaf4;
-  --card-foreground: var(--brand-brown);
+  --card-foreground: var(--brand-blue);
   --popover: #fffaf4;
-  --popover-foreground: var(--brand-brown);
+  --popover-foreground: var(--brand-blue);
   --primary: var(--brand-blue);
   --primary-foreground: #fffaf4;
   --secondary: var(--brand-peach);
-  --secondary-foreground: var(--brand-brown);
+  --secondary-foreground: var(--brand-blue);
   --muted: #e6ddd2;
   --muted-foreground: #6b5742;
   --accent: var(--brand-coral);
@@ -83,11 +81,11 @@
   --chart-4: var(--brand-sage);
   --chart-5: var(--brand-blue);
   --sidebar: #fffaf4;
-  --sidebar-foreground: var(--brand-brown);
+  --sidebar-foreground: var(--brand-blue);
   --sidebar-primary: var(--brand-blue);
   --sidebar-primary-foreground: #fffaf4;
   --sidebar-accent: var(--brand-sage);
-  --sidebar-accent-foreground: var(--brand-brown);
+  --sidebar-accent-foreground: var(--brand-blue);
   --sidebar-border: #d8cfc4;
   --sidebar-ring: var(--brand-coral);
 }

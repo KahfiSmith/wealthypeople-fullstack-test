@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   description: siteConfig.description,
+  icons: {
+    icon: siteConfig.logoPath,
+  },
   title: siteConfig.name,
 };
 
